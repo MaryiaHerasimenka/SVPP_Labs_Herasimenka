@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorAppWPF", "CalculatorAppWPF.csproj", "{4E0566DA-35FB-4C84-80E5-FF4BAD7B363B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LB2_SVPP", "..\LB2_SVPP\LB2_SVPP.csproj", "{23C1BD78-0390-40BC-A1A9-3F830CFDB143}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E0566DA-35FB-4C84-80E5-FF4BAD7B363B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0566DA-35FB-4C84-80E5-FF4BAD7B363B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0566DA-35FB-4C84-80E5-FF4BAD7B363B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0566DA-35FB-4C84-80E5-FF4BAD7B363B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C1BD78-0390-40BC-A1A9-3F830CFDB143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C1BD78-0390-40BC-A1A9-3F830CFDB143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C1BD78-0390-40BC-A1A9-3F830CFDB143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C1BD78-0390-40BC-A1A9-3F830CFDB143}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB3BE132-177F-4DAF-865A-7B4A5492AE59}
+	EndGlobalSection
+EndGlobal

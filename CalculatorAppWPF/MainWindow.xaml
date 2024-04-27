@@ -1,0 +1,53 @@
+﻿<Window x:Class="CalculatorAppWPF.Calculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorAppWPF"
+        mc:Ignorable="d"
+        Title="Calculator" Height="600" Width="400" FontFamily="Cascadia Mono SemiLight" FontSize="24">
+    <Grid x:Name="CalculatorGrid">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.2*" ></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button x:Name="add" Content="+" Grid.Column="0" Grid.Row="1" Click="Operation_Click"/>
+        <Button x:Name="sub" Content="-" Grid.Column="1" Grid.Row="1" Click="Operation_Click" />
+        <Button x:Name="mul" Content="×" Grid.Column="2" Grid.Row="1" Click="Operation_Click"/>
+        <Button x:Name="div" Content="÷" Grid.Column="4" Grid.Row="1"  Click="Operation_Click"/>
+        <Button x:Name="onedivx" Content="1÷x" Grid.Column="0" Grid.Row="2" Click="oneDivX_Click"></Button>
+        <Button x:Name="sqrt" Content="√" Grid.Column="1" Grid.Row="2" Click="sqrt_Click"></Button>
+        <Button x:Name="xn" Content="x^n" Grid.Column="2" Grid.Row="2" Click="Operation_Click"></Button>
+        <Button x:Name="sin" Content="sin" Grid.Column="0" Grid.Row="3" Click="sin_Click"></Button>
+        <Button x:Name="cos" Content="cos" Grid.Column="1" Grid.Row="3" Click="cos_Click"></Button>
+        <Button x:Name="tg" Content="tg" Grid.Column="2" Grid.Row="3" Click="tan_Click"></Button>
+        <Button x:Name="num7" Content="7" Grid.Column="0" Grid.Row="4" Click="Num_Click"></Button>
+        <Button x:Name="num8" Content="8" Grid.Column="1" Grid.Row="4" Click="Num_Click"></Button>
+        <Button x:Name="num9" Content="9" Grid.Column="2" Grid.Row="4" Click="Num_Click"></Button>
+        <Button x:Name="num4" Content="4" Grid.Column="0" Grid.Row="5" Click="Num_Click"></Button>
+        <Button x:Name="num5" Content="5" Grid.Column="1" Grid.Row="5" Click="Num_Click"></Button>
+        <Button x:Name="num6" Content="6" Grid.Column="2" Grid.Row="5" Click="Num_Click"></Button>
+        <Button x:Name="num1" Content="1" Grid.Column="0" Grid.Row="6" Click="Num_Click"></Button>
+        <Button x:Name="num2" Content="2" Grid.Column="1" Grid.Row="6" Click="Num_Click"></Button>
+        <Button x:Name="num3" Content="3" Grid.Column="2" Grid.Row="6" Click="Num_Click"></Button>
+        <Button x:Name="num0" Content="0" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Click="Num_Click"/>
+        <Button x:Name="eq" Content="=" Grid.Column="3" Grid.Row="3" Click="Euqual_Click"></Button>
+        <Button x:Name="clear" Content="C" Grid.Column="3" Grid.Row="2" Click="clear_Click"></Button>
+        <Label x:Name="label" Background="#FFF9DDDD" Content="Количество &#xD;&#xA; операций&#xD;&#xA; сложения:" Grid.Column="4" Grid.Row="6" HorizontalContentAlignment="Center" FontSize="12" FontFamily="Comic Sans MS" Panel.ZIndex="1" />
+        <TextBlock x:Name="calcDisplay"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" FontSize="72" />
+        <TextBlock x:Name="labelSum"  Grid.Column="3" Grid.Row="6"  FontSize="36" FontFamily="Ink Free" Background="#FFF9DDDD" IsEnabled="False" FontWeight="Bold" HorizontalAlignment="Center" Panel.ZIndex="1" Margin="0,59,0,0" VerticalAlignment="Bottom" />
+    </Grid>
+</Window>
+
+
