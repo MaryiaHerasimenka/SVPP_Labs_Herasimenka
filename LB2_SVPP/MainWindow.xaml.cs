@@ -90,25 +90,17 @@ namespace LB2_SVPP
         {
             try
             {
-                //double xST = Convert.ToDouble(xStartTB.Text);
-
-                //results.Add(Convert.ToString(xST));
-                double s = 0;
 
                 for (double i = Convert.ToDouble(xStartTB.Text); i <= Convert.ToDouble(xStopTB.Text); i += Convert.ToDouble(stepV.Text))
                 {
-                    //string xSTEP = Convert.ToString(i);
                     results.Add("x=" + Convert.ToString(i));
-                    //string yRES = Convert.ToString(-Math.Log(Math.Abs(2 * Math.Sin(i / 2))));
                     results.Add("Y(x)=" + Convert.ToString(-Math.Log(Math.Abs(2 * Math.Sin(i / 2)))));
-                    
+                    double s = 0;
                     for (int k = 1; k <= Convert.ToInt32(nIt.Text); k++)
                     {
                         s += (Math.Cos(k * i)) / k;
                     }
-                    //string sRES = Convert.ToString(s);
                     results.Add("S(x)=" + Convert.ToString(s));
-                    s = 0;
                 }
             }
             catch (Exception ex)
