@@ -26,17 +26,17 @@
         </Window.Resources>
     <Grid x:Name="grid">
         <Canvas>
-            <Button Content="Calculate" Width="120" Height="50" Canvas.Left="49" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button Content="Calculate" Width="120" Height="50" Canvas.Left="49" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click_Calculate"/>
             <Button Content="Clear" Width="120" Height="50" Canvas.Left="230" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click_Clear"/>
             <Label  Content="X start" Canvas.Left="150" Canvas.Top="100"/>
             <Label  Content="X stop" Canvas.Left="150" Canvas.Top="150"/>
             <Label  Content="Step" Canvas.Left="150" Canvas.Top="200"/>
             <Label Content="N" Canvas.Left="150" Canvas.Top="250"/>
-            <TextBox x:Name="xStartTB" Text="{Binding Path=xStart, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTempl}"  Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="100" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBox x:Name="xStopTB" Text="{Binding Path=xStop, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="150" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBox x:Name="stepV" Text="{Binding Path=stepValue, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="200" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBox x:Name="nIt" Text="{Binding Path=nIteration, ValidatesOnExceptions=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="250" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <ListBox x:Name="outputResultWin"  Canvas.Left="400" Canvas.Top="50" Height="380" Width="250" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="xStartTB" Text="{Binding Path=xStart, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="100" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="xStopTB" Text="{Binding Path=xStop, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="150" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="stepV" Text="{Binding Path=stepValue, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="200" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="nIt" Text="{Binding Path=nIteration, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}" Canvas.Left="200" TextWrapping="Wrap" Canvas.Top="250" Height="25" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <ListBox x:Name="outputResultWin"  ItemsSource="{Binding}" Canvas.Left="400" Canvas.Top="50" Height="380" Width="250" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         </Canvas>
     </Grid>
