@@ -88,6 +88,7 @@ namespace LB2_SVPP
 
         private void Button_Click_Calculate(object sender, RoutedEventArgs e)
         {
+            results.Clear();
             try
             {
 
@@ -100,6 +101,7 @@ namespace LB2_SVPP
                     {
                         s += (Math.Cos(k * i)) / k;
                     }
+
                     results.Add("S(x)=" + Convert.ToString(s));
                 }
             }
