@@ -13,6 +13,10 @@ namespace LB2_SVPP
     public class Values : INotifyPropertyChanged
 
     {
+        private int n;
+        private double xST;
+        private double xSP;
+        private double sV;
         public double xStart
         {
             get { return xST; }
@@ -40,22 +44,12 @@ namespace LB2_SVPP
                 OnPropertyChanged("stepValue");
             }
         }
-        private int n;
-        private double xST;
-        private double xSP;
-        private double sV;
-        public double xNow;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public int nIteration
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public int nIteration {
             get { return n; }
-            set {
+            set
+            {
                 if (value <= 5)
                     throw new ArgumentException("The expected value must be greater than 5.");
                 else
@@ -64,9 +58,13 @@ namespace LB2_SVPP
             }
 
         }
-
-
-
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
     }
    
     public partial class MainWindow : Window
