@@ -15,12 +15,19 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <ControlTemplate x:Key="ErrorTempl">
             <StackPanel Orientation="Horizontal">
                 <Border BorderThickness="1" BorderBrush="OrangeRed">
                     <AdornedElementPlaceholder></AdornedElementPlaceholder>
                 </Border>
-                <TextBlock Foreground="OrangeRed" FontSize="18">*</TextBlock>
+                <TextBlock Foreground="OrangeRed" FontSize="18"></TextBlock>
             </StackPanel>
         </ControlTemplate>
     </Window.Resources>
@@ -42,16 +49,22 @@
             <Label  Content="Зарплата:"/>
             <TextBox x:Name="salaryTB" Height="30" Text="{Binding Path=Salary, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}"/>
             <Label  Content="Должность:"/>
-            <ComboBox x:Name="positionCB" IsEditable="True" IsReadOnly="False" Height="30" Text="{Binding Path=Position, ValidatesOnExceptions=True}" >
+            <StackPanel Orientation="Horizontal">
+				<ComboBox x:Name="positionCB" IsEditable="True" IsReadOnly="False" Width="185" Height="30" Text="{Binding Path=Position, ValidatesOnExceptions=True}" >
                 <TextBlock Text="Директор"/>
                 <TextBlock Text="Бухгалтер"/>
                 <TextBlock Text="Начальник отдела"/>
                 <TextBlock Text="Аппаратчик"/>
                 <TextBlock Text="Слесарь"/>
                 <TextBlock Text="Наладчик"/>
-            </ComboBox>
+				</ComboBox>
+                <Button FontWeight="ExtraBold" FontSize="20" Padding="0 -5 0 0" x:Name="addPCB" Content="+"  Width="30" Height="30" Background="AliceBlue" Click="addPCB_Click" BorderBrush="DarkGray" BorderThickness="1" />
+			</StackPanel>	
+
+			
             <Label  Content="Город:"/>
-            <ComboBox x:Name="cityCB" IsEditable="True" IsReadOnly="False" Height="30" Text="{Binding Path=City, ValidatesOnExceptions=True}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="cityCB" IsEditable="True" IsReadOnly="False" Width="185" Height="30" Text="{Binding Path=City, ValidatesOnExceptions=True}">
                 <TextBlock Text="Минск"/>
                 <TextBlock Text="Гродно"/>
                 <TextBlock Text="Витебск"/>
@@ -59,26 +72,31 @@
                 <TextBlock Text="Гомель"/>
                 <TextBlock Text="Брест"/>
             </ComboBox>
+             <Button FontWeight="ExtraBold" FontSize="20" Padding="0 -5 0 0" x:Name="addCCB" Content="+"  Width="30" Height="30" Background="AliceBlue" Click="addCCB_Click" BorderBrush="DarkGray" BorderThickness="1" />
+            </StackPanel>
             <Label  Content="Улица:"/>
-            <ComboBox x:Name="streetCB" IsEditable="True" IsReadOnly="False" Height="30" Text="{Binding Path=Street, ValidatesOnExceptions=True}">
-                <TextBlock Text="Тухачевского"/>
-                <TextBlock Text="Московская"/>
-                <TextBlock Text="Ленинградская"/>
-                <TextBlock Text="Куйбышева"/>
-                <TextBlock Text="Веры Хоружей"/>
-                <TextBlock Text="Кооперативная"/>
-            </ComboBox>
-            <Label  Content="Дом:"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="streetCB" IsEditable="True" IsReadOnly="False" Width="185" Height="30" Text="{Binding Path=Street, ValidatesOnExceptions=True}">
+                    <TextBlock Text="Тухачевского"/>
+                    <TextBlock Text="Московская"/>
+                    <TextBlock Text="Ленинградская"/>
+                    <TextBlock Text="Куйбышева"/>
+                    <TextBlock Text="Веры Хоружей"/>
+                    <TextBlock Text="Кооперативная"/>
+                </ComboBox>
+                <Button FontWeight="ExtraBold" FontSize="20" Padding="0 -5 0 0" x:Name="addSCB" Content="+"  Width="30" Height="30" Background="AliceBlue" Click="addSCB_Click" BorderBrush="DarkGray" BorderThickness="1" />
+        </StackPanel>
+        <Label  Content="Дом:"/>
             <TextBox x:Name="houseNumberTB" Height="30" Text="{Binding Path=HouseNumber, ValidatesOnExceptions=True}" Validation.ErrorTemplate="{StaticResource ErrorTempl}"/>
-            <Button Content="Добавить"  Background="AliceBlue" HorizontalAlignment="Center" Height="30" Margin="0 5 0 5" Width="80" Grid.Column="0" Grid.Row="1" Click="Add_Click"/>
-            <Button Content="Очистить" Background="AliceBlue" HorizontalAlignment="Center" Height="30"  Width="80" Grid.Column="0" Grid.Row="1" Click="Clear_Fields_Click"/>
+            <Button Content="Добавить" x:Name="addBtn" Background="AliceBlue" HorizontalAlignment="Center" Height="30" Margin="0 5 0 5" Width="80" Grid.Column="0" Grid.Row="1" Click="Add_Click"/>
+            <Button Content="Очистить" x:Name="clearBtn" Background="AliceBlue" HorizontalAlignment="Center" Height="30"  Width="80" Grid.Column="0" Grid.Row="1" Click="Clear_Fields_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
             <Label Content="Список работников:"/>
             <ListBox x:Name="outListWorkersLB"  ItemsSource="{Binding}" Height="400"/>
         </StackPanel>
 
-        <Button Content="Очистить поле" Margin="15" Background="AliceBlue" HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom" Width="120" Grid.Column="2" Grid.Row="1" Click="Clear_List_Field_Click"/>
+        <Button Content="Очистить поле" x:Name="clearFieldBtn" Margin="15" Background="AliceBlue" HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom" Width="120" Grid.Column="2" Grid.Row="1" Click="Clear_List_Field_Click"/>
         <Menu Height="25" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <MenuItem Header="Файл">     
                 <MenuItem Header="Сохранить в файл" Click="Save_To_File_Click"></MenuItem>     

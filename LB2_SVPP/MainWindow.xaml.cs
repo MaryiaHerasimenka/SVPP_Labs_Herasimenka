@@ -80,8 +80,6 @@ namespace LB2_SVPP
             results = new ObservableCollection<string>();
             outputResultWin.DataContext = results;
 
-
-
         }
 
         private void Button_Click_Calculate(object sender, RoutedEventArgs e)
