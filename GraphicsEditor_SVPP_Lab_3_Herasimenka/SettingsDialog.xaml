@@ -1,0 +1,27 @@
+﻿<Window x:Class="GraphicsEditor_SVPP_Lab_3_Herasimenka.SettingsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:GraphicsEditor_SVPP_Lab_3_Herasimenka"
+        mc:Ignorable="d"
+        Title="Figure Settings" Height="320" Width="300">
+    <StackPanel Margin="10">
+        <TextBlock Text="Select Line Thickness:" Margin="0,0,0,10"/>
+        <Slider x:Name="ThicknessSlider" Minimum="1" Maximum="10" Value="2" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="ThicknessSlider_ValueChanged"/>
+        <TextBlock Text="Preview:" Margin="0,10,0,0"/>
+        <Canvas Height="50">
+            <Line x:Name="PreviewLine" X1="5" Y1="25" X2="260" Y2="25" Stroke="Black" StrokeThickness="{Binding ElementName=ThicknessSlider, Path=Value}"/>
+        </Canvas>
+        
+        <TextBlock Text="Select Line Color:" Margin="0,0,0,10"/>
+        <xctk:ColorPicker x:Name="ColorPickerLine" SelectedColor="Black"/>
+
+        <TextBlock Text="Select Backfround Color:" Margin="0,0,0,10"/>
+        <xctk:ColorPicker x:Name="ColorPickerBackground" SelectedColor="White"/>
+
+        <Button Content="OK" Click="ok_Button_Click" Width="60" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+    </StackPanel>
+</Window>

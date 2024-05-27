@@ -11,22 +11,33 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
 
 namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
-    public partial class LineThicknessDialog : Window
+    /// <summary>
+    /// Interaction logic for SettingsDialog.xaml
+    /// </summary>
+    public partial class SettingsDialog : Window
     {
         public double LineThickness { get; private set; }
+        public Color SelectedLineColor { get; private set; }
+        public Color SelectedBackgroundColor { get; private set; }
 
-        public LineThicknessDialog(double currentThickness)
+        public SettingsDialog(Color initialLineColor, Color initialBackgroundColor, FigureParameters currentThickness)
         {
             InitializeComponent();
+            ColorPickerLine.SelectedColor = initialLineColor;
+            ColorPickerBackground.SelectedColor = initialBackgroundColor;
             ThicknessSlider.DataContext = currentThickness;
         }
 
         private void ok_Button_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+
             LineThickness = ThicknessSlider.Value;
+            SelectedLineColor = ColorPickerLine.SelectedColor.Value;
+            SelectedBackgroundColor = ColorPickerBackground.SelectedColor.Value;
             DialogResult = true;
             Close();
         }
@@ -39,27 +50,3 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         }
     }
 }
-//namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
-//{
-//    public partial class LineThicknessDialog : Window
-//    {
-//        public LineThicknessDialog(FigureParameters currentThickness)
-//        {
-//            InitializeComponent();
-//            ThicknessSlider.DataContext = currentThickness;
-//        }
-
-//        private void ok_Button_Click(object sender, RoutedEventArgs e)
-//        {
-//            DialogResult = true;
-//            Close();
-//        }
-//        private void ThicknessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-//        {
-//            if (PreviewLine != null)
-//            {
-//                PreviewLine.StrokeThickness = e.NewValue;
-//            }
-//        }
-//    }
-//}

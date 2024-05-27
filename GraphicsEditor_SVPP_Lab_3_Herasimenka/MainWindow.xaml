@@ -14,11 +14,7 @@
                 <Separator />
                 <MenuItem Header="Exit" Command="local:MainWindow.ExitCommand" InputGestureText="Alt+F4"/>
             </MenuItem>
-            <MenuItem Header="Settings">
-                <MenuItem Header="Line Thickness" Click="OpenLineThicknessDialog"/>
-                <MenuItem Header="Line Color" Click="OpenLineColorDialog"/>
-                <MenuItem Header="Background Color" Click="OpenBackgroundColorDialog"/>
-            </MenuItem>
+            <MenuItem Header="Settings" Click="OpenSettingsDialog"/>
             <MenuItem Header="Help">
                 <MenuItem Header="About" Click="OpenAboutDialog"/>
             </MenuItem>

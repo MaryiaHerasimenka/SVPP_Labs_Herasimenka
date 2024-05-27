@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
 
 
 namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
@@ -19,17 +20,17 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
     {
         public Color SelectedColor { get; private set; }
 
-        public ColorDialog(Color initialColor)
-        {
-            InitializeComponent();
-            ColorPicker.SelectedColor = initialColor;
-        }
+    public ColorDialog(Color initialColor)
+    {
+        InitializeComponent();
+        ColorPicker.SelectedColor = initialColor;
+    }
 
-        private void ok_Button_Click(object sender, RoutedEventArgs e)
+    private void ok_Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectedColor = ColorPicker.SelectedColor.Value;
-            DialogResult = true;
-            Close();
+        SelectedColor = ColorPicker.SelectedColor ?? Colors.Black;
+        DialogResult = true;
+        Close();
         }
     }
 }

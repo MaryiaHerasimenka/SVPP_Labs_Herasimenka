@@ -15,14 +15,22 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
+    public class FigureParameters
+    {
+        private Color lineColor = Colors.Black;
+        private Color backgroundColor = Colors.White;
+        private double lineThickness = 2.0;
+    
+        public Color LineColor { get => lineColor; set => lineColor = value; }
+        public Color BackgroundColor { get => backgroundColor; set => backgroundColor = value; }
+        public double LineThickness { get => lineThickness;set => lineThickness = value; }
+    }
     public partial class MainWindow : Window
     {
         public static RoutedCommand ClearCommand = new RoutedCommand();
         public static RoutedCommand ExitCommand = new RoutedCommand();
 
-        private Color lineColor = Colors.Black;
-        private Color backgroundColor = Colors.White;
-        private double lineThickness = 2.0;
+        FigureParameters figure;
 
         public MainWindow()
         {
@@ -39,6 +47,8 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
             this.CommandBindings.Add(binding2);
 
             InputBindings.Add(new KeyBinding(ClearCommand, Key.Delete, ModifierKeys.Control));
+            
+            figure = new FigureParameters();
 
         }
 
@@ -58,9 +68,9 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             Polygon star = new Polygon
             {
-                Stroke = new SolidColorBrush(lineColor),
-                StrokeThickness = lineThickness,
-                Fill = new SolidColorBrush(backgroundColor),
+                Stroke = new SolidColorBrush(figure.LineColor),
+                StrokeThickness = figure.LineThickness,
+                Fill = new SolidColorBrush(figure.BackgroundColor),
                 Points = CalculateStarPoints(position, 5, 30, 10) // 5 лучей, радиус 30, радиус внутреннего круга 10
             };
             DrawingCanvas.Children.Add(star);
@@ -78,33 +88,67 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
             }
             return points;
         }
-
-        private void OpenLineThicknessDialog(object sender, RoutedEventArgs e)
+        private void OpenSettingsDialog(object sender, RoutedEventArgs e)
         {
-            LineThicknessDialog dialog = new LineThicknessDialog(lineThickness);
-            if (dialog.ShowDialog() == true)
+            try
             {
-                lineThickness = dialog.LineThickness;
+                SettingsDialog dialog = new SettingsDialog(figure.LineColor,figure.BackgroundColor,figure);
+                if (dialog.ShowDialog() == true)
+                {
+                    figure.LineThickness = dialog.LineThickness;
+                    figure.LineColor = dialog.SelectedLineColor;
+                    figure.BackgroundColor = dialog.SelectedBackgroundColor;
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void OpenLineColorDialog(object sender, RoutedEventArgs e)
+
+        //private void OpenLineThicknessDialog(object sender, RoutedEventArgs e)
+        //{
+
+        //    LineThicknessDialog dialog = new LineThicknessDialog(figure);
+        //    dialog.ShowDialog();
+
+        //}
+        private void OpenLineThicknessDialog(object sender, RoutedEventArgs e)
+    {
+        try
         {
-            ColorDialog dialog = new ColorDialog(lineColor);
+            LineThicknessDialog dialog = new LineThicknessDialog(figure.LineThickness);
             if (dialog.ShowDialog() == true)
             {
-                lineColor = dialog.SelectedColor;
+                figure.LineThickness = dialog.LineThickness;
             }
+        }
+        catch (Exception ex) { MessageBox.Show(ex.Message); }
+    }
+
+    private void OpenLineColorDialog(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ColorDialog dialog = new ColorDialog(figure.LineColor);
+            if (dialog.ShowDialog() == true)
+            {
+                figure.LineColor = dialog.SelectedColor;
+            }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void OpenBackgroundColorDialog(object sender, RoutedEventArgs e)
         {
-            ColorDialog dialog = new ColorDialog(backgroundColor);
+            try
+            {
+                ColorDialog dialog = new ColorDialog(figure.BackgroundColor);
             if (dialog.ShowDialog() == true)
             {
-                backgroundColor = dialog.SelectedColor;
+                figure.BackgroundColor = dialog.SelectedColor;
             }
         }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+}
 
         private void OpenAboutDialog(object sender, RoutedEventArgs e)
         {
