@@ -9,7 +9,7 @@
         Title="Color Picker" Height="150" Width="300">
     <StackPanel Margin="10">
         <TextBlock Text="Select Color:" Margin="0,0,0,10"/>
-        <xctk:ColorPicker x:Name="ColorPicker" SelectedColor="Black"/>
+        <xctk:ColorPicker x:Name="ColorPicker" SelectedColor="{Binding Path=BackgroundColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="OK" Click="ok_Button_Click" HorizontalAlignment="Right" Margin="0,10,0,0"/>
     </StackPanel>
 </Window>

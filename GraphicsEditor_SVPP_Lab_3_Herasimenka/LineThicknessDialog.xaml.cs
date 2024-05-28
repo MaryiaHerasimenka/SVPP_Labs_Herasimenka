@@ -16,9 +16,9 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
     public partial class LineThicknessDialog : Window
     {
-        public double LineThickness { get; private set; }
+//
 
-        public LineThicknessDialog(double currentThickness)
+        public LineThicknessDialog(FigureParameters currentThickness)//
         {
             InitializeComponent();
             ThicknessSlider.DataContext = currentThickness;
@@ -26,16 +26,16 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 
         private void ok_Button_Click(object sender, RoutedEventArgs e)
         {
-            LineThickness = ThicknessSlider.Value;
+           //
             DialogResult = true;
             Close();
         }
         private void ThicknessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (PreviewLine != null)
-            {
-                PreviewLine.StrokeThickness = e.NewValue;
-            }
+            //if (PreviewLine != null)
+            //{
+            //    PreviewLine.StrokeThickness = e.NewValue;
+            //}
         }
     }
 }

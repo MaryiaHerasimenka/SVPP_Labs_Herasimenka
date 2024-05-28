@@ -9,17 +9,18 @@
         Title="Figure Settings" Height="320" Width="300">
     <StackPanel Margin="10">
         <TextBlock Text="Select Line Thickness:" Margin="0,0,0,10"/>
-        <Slider x:Name="ThicknessSlider" Minimum="1" Maximum="10" Value="2" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="ThicknessSlider_ValueChanged"/>
+        <Slider x:Name="ThicknessSlider" Minimum="1" Maximum="10" Value="{Binding Path=LineThickness}" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="ThicknessSlider_ValueChanged"/>
+        <Label Content="{Binding ElementName=ThicknessSlider, Path=Value}" ContentStringFormat=" {0}px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Text="Preview:" Margin="0,10,0,0"/>
         <Canvas Height="50">
             <Line x:Name="PreviewLine" X1="5" Y1="25" X2="260" Y2="25" Stroke="Black" StrokeThickness="{Binding ElementName=ThicknessSlider, Path=Value}"/>
         </Canvas>
         
         <TextBlock Text="Select Line Color:" Margin="0,0,0,10"/>
-        <xctk:ColorPicker x:Name="ColorPickerLine" SelectedColor="Black"/>
+        <xctk:ColorPicker x:Name="ColorPickerLine" SelectedColor="{Binding Path=LineColor}"/>
 
         <TextBlock Text="Select Backfround Color:" Margin="0,0,0,10"/>
-        <xctk:ColorPicker x:Name="ColorPickerBackground" SelectedColor="White"/>
+        <xctk:ColorPicker x:Name="ColorPickerBackground" SelectedColor="{Binding Path=BackgroundColor}"/>
 
         <Button Content="OK" Click="ok_Button_Click" Width="60" HorizontalAlignment="Center" Margin="0,20,0,0"/>
 
