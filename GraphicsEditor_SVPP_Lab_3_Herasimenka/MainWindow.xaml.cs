@@ -118,7 +118,7 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             try
             {
-                ColorDialog dialog = new ColorDialog(figure);
+                ColorDialog dialog = new ColorDialog(figure,true);
             if (dialog.ShowDialog() == true)
             {
               //  figure.LineColor = dialog.SelectedColor;
@@ -131,7 +131,7 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             try
             {
-                ColorDialog dialog = new ColorDialog(figure);
+                ColorDialog dialog = new ColorDialog(figure,false);
             if (dialog.ShowDialog() == true)
             {
           //      figure.BackgroundColor = dialog.SelectedColor;

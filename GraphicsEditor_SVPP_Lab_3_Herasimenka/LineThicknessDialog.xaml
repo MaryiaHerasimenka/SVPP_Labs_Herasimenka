@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphicsEditor_SVPP_Lab_3_Herasimenka"
         mc:Ignorable="d"
-        Title="Line Thickness" Height="210" Width="300">
+        Title="Line Thickness" Height="210" Width="300" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="10">
         <TextBlock Text="Select Line Thickness:" Margin="0,0,0,10"/>
         <Slider x:Name="ThicknessSlider" Minimum="1" Maximum="10" Value="{Binding Path=LineThickness,Mode=TwoWay}" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="ThicknessSlider_ValueChanged"/>

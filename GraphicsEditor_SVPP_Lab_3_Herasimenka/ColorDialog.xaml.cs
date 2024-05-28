@@ -18,19 +18,30 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
     public partial class ColorDialog : Window
     {
-//
-    public ColorDialog(FigureParameters initialColor)//
-    {
-        InitializeComponent();
-            //
-        ColorPicker.DataContext = initialColor;
-    }
-
-    private void ok_Button_Click(object sender, RoutedEventArgs e)
+        //
+        public ColorDialog(FigureParameters initialColor, bool colordialogentity)//
         {
-      //
-        DialogResult = true;
-        Close();
+            InitializeComponent();
+            //
+            BindingOperations.ClearBinding(ColorPicker, ColorPicker.SelectedColorProperty);
+           
+            Binding binding = new Binding();
+
+
+            if (colordialogentity)
+                binding.Path = new PropertyPath("LineColor");
+            else
+                binding.Path = new PropertyPath("BackgroundColor");
+
+            ColorPicker.SetBinding(ColorPicker.SelectedColorProperty, binding);
+            ColorPicker.DataContext = initialColor;
+        }
+
+        private void ok_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //
+            DialogResult = true;
+            Close();
         }
     }
 }
