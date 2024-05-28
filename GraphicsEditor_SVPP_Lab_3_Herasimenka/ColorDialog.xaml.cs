@@ -18,17 +18,17 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
     public partial class ColorDialog : Window
     {
-        public Color SelectedColor { get; private set; }
-
-    public ColorDialog(Color initialColor)
+//
+    public ColorDialog(FigureParameters initialColor)//
     {
         InitializeComponent();
-        ColorPicker.SelectedColor = initialColor;
+            //
+        ColorPicker.DataContext = initialColor;
     }
 
     private void ok_Button_Click(object sender, RoutedEventArgs e)
         {
-        SelectedColor = ColorPicker.SelectedColor ?? Colors.Black;
+      //
         DialogResult = true;
         Close();
         }

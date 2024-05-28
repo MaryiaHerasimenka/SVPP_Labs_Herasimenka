@@ -15,16 +15,6 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
 {
-    public class FigureParameters
-    {
-        private Color lineColor = Colors.Black;
-        private Color backgroundColor = Colors.White;
-        private double lineThickness = 2.0;
-    
-        public Color LineColor { get => lineColor; set => lineColor = value; }
-        public Color BackgroundColor { get => backgroundColor; set => backgroundColor = value; }
-        public double LineThickness { get => lineThickness;set => lineThickness = value; }
-    }
     public partial class MainWindow : Window
     {
         public static RoutedCommand ClearCommand = new RoutedCommand();
@@ -92,12 +82,12 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             try
             {
-                SettingsDialog dialog = new SettingsDialog(figure.LineColor,figure.BackgroundColor,figure);
+                SettingsDialog dialog = new SettingsDialog(figure);
                 if (dialog.ShowDialog() == true)
                 {
-                    figure.LineThickness = dialog.LineThickness;
-                    figure.LineColor = dialog.SelectedLineColor;
-                    figure.BackgroundColor = dialog.SelectedBackgroundColor;
+                    //figure.LineThickness = dialog.LineThickness;
+                    //figure.LineColor = dialog.SelectedLineColor;
+                    //figure.BackgroundColor = dialog.SelectedBackgroundColor;
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -115,10 +105,10 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
     {
         try
         {
-            LineThicknessDialog dialog = new LineThicknessDialog(figure.LineThickness);
+            LineThicknessDialog dialog = new LineThicknessDialog(figure);
             if (dialog.ShowDialog() == true)
             {
-                figure.LineThickness = dialog.LineThickness;
+             //   figure.LineThickness = dialog.LineThickness;
             }
         }
         catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -128,10 +118,10 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             try
             {
-                ColorDialog dialog = new ColorDialog(figure.LineColor);
+                ColorDialog dialog = new ColorDialog(figure);
             if (dialog.ShowDialog() == true)
             {
-                figure.LineColor = dialog.SelectedColor;
+              //  figure.LineColor = dialog.SelectedColor;
             }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -141,10 +131,10 @@ namespace GraphicsEditor_SVPP_Lab_3_Herasimenka
         {
             try
             {
-                ColorDialog dialog = new ColorDialog(figure.BackgroundColor);
+                ColorDialog dialog = new ColorDialog(figure);
             if (dialog.ShowDialog() == true)
             {
-                figure.BackgroundColor = dialog.SelectedColor;
+          //      figure.BackgroundColor = dialog.SelectedColor;
             }
         }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
