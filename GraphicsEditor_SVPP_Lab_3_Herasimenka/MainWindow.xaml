@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraphicsEditor_SVPP_Lab_3_Herasimenka"
-        Title="Graphics Editor Herasimenka App"  Height="450" Width="800">
+        Title="Graphics Editor Herasimenka App"  Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
