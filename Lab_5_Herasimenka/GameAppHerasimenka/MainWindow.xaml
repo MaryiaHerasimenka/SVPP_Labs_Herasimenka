@@ -1,0 +1,14 @@
+﻿<Window x:Class="GameAppHerasimenka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:HorseRaceControlLibrary;assembly=HorseRaceControlLibrary"
+        Title="Horse Race" Height="450" Width="800">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Content="Старт" Click="StartButton_Click" />
+            <Button Content="Пауза" Click="PauseButton_Click" />
+            <Button Content="Сброс" Click="ResetButton_Click" />
+        </ToolBar>
+        <local:HorseRaceControl x:Name="horseRaceControl" />
+    </DockPanel>
+</Window>

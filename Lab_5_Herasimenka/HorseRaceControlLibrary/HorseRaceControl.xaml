@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="HorseRaceControlLibrary.HorseRaceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HorseRaceControlLibrary">
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Horses}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Canvas>
+                        <Rectangle Width="60" Height="30" Fill="SaddleBrown"
+                                   Canvas.Left="{Binding X}"
+                                   Canvas.Top="{Binding Y}"
+                                   MouseLeftButtonDown="HorseRectangle_MouseLeftButtonDown"
+                                   MouseRightButtonDown="HorseRectangle_MouseRightButtonDown"/>
+                    </Canvas>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
