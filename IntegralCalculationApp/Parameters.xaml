@@ -1,0 +1,20 @@
+﻿<Window x:Class="IntegralCalculationApp.Parameters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Parameters" Height="300" Width="400">
+    <Grid Background="AliceBlue">
+        <StackPanel Margin="20">
+            <Label Content="Введите a:"/>
+            <TextBox x:Name="parA"/>
+            <Label Content="Введите b:"/>
+            <TextBox x:Name="parB"/>
+            <Label Content="Введите N:"/>
+            <TextBox x:Name="parN"/>
+            <Button Name="btnEnter" Content="Ввод" Click="btnEnter_Click" Margin="10"/>
+            <Button Name="btnClear" Content="Очистить" Click="btnClear_Click" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
