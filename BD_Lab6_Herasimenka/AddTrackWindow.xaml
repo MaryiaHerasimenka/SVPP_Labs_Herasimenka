@@ -1,0 +1,22 @@
+﻿<Window x:Class="BD_Lab6_Herasimenka.AddTrackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BD_Lab6_Herasimenka"
+        mc:Ignorable="d"
+        Title="Add Track" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+        <Label Content="Track Title:" />
+        <TextBox Name="txtTrackTitle" />
+        <Label Content="Track Duration:" />
+        <TextBox Name="txtTrackDuration" />
+        <Label Content="Artist Name:" />
+        <TextBox Name="txtArtistName" />
+        <Label Content="Album Title:" />
+        <TextBox Name="txtAlbumTitle" />
+        <Button Margin="40"  Content="Add"  Click="btnAdd_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
