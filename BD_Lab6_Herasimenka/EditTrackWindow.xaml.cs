@@ -28,7 +28,7 @@ namespace BD_Lab6_Herasimenka
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Track.Update();
-            this.DialogResult = true;  
+            DialogResult = true;
             Close();
         }
     }

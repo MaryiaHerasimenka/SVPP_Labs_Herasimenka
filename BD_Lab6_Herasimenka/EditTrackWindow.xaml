@@ -5,13 +5,13 @@
     <Grid>
         <StackPanel>
             <Label Content="Track Title:"/>
-            <TextBox x:Name="txtTrackTitle"/>
+            <TextBox x:Name="txtTrackTitle" Text="{Binding TrackTitle, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Track Duration:"/>
-            <TextBox x:Name="txtTrackDuration"/>
+            <TextBox x:Name="txtTrackDuration" Text="{Binding TrackDuration, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Artist Name:"/>
-            <TextBox x:Name="txtArtistName"/>
+            <TextBox x:Name="txtArtistName" Text="{Binding ArtistName, UpdateSourceTrigger=PropertyChanged}"/>
             <Label Content="Album Title:"/>
-            <TextBox x:Name="txtAlbumTitle"/>
+            <TextBox x:Name="txtAlbumTitle" Text="{Binding AlbumTitle, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Margin="40" Content="Save" Click="Save_Click"/>
         </StackPanel>
     </Grid>
