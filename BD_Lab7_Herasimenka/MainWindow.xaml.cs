@@ -14,11 +14,11 @@ namespace BD_Lab7_Herasimenka
             DataContext = context; 
             InitTrackList();
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            string result = DatabaseHelper.CheckDatabaseConnection();
-            MessageBox.Show(result, "Database Connection Status", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    string result = DatabaseHelper.CheckDatabaseConnection();
+        //    MessageBox.Show(result, "Database Connection Status", MessageBoxButton.OK, MessageBoxImage.Information);
+        //}
         private void InitTrackList()
         {
             context.Tracks.Load();
