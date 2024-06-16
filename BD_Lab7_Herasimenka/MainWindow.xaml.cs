@@ -11,14 +11,18 @@ namespace BD_Lab7_Herasimenka
         {
             InitializeComponent();
             context = new TrackContext("TestDbConnection");
-            DataContext = context;  // Устанавливаем DataContext
+            DataContext = context; 
             InitTrackList();
         }
-
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string result = DatabaseHelper.CheckDatabaseConnection();
+            MessageBox.Show(result, "Database Connection Status", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
         private void InitTrackList()
         {
             context.Tracks.Load();
-            dGrid.DataContext = context.Tracks.Local; // Устанавливаем ItemsSource для DataGrid
+            dGrid.DataContext = context.Tracks.Local; 
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -66,6 +70,7 @@ namespace BD_Lab7_Herasimenka
                 }
             }
         }
+
 
         private void dGrid_LoadingRow(object sender, System.Windows.Controls.DataGridRowEventArgs e)
         {
